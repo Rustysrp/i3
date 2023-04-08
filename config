@@ -1,23 +1,9 @@
-
-# It will not be overwritten, so edit it as you like.
-#
-# Should you change your keyboard layout some time, delete
-# this file and re-run i3-config-wizard(1).
-#
-
-# i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
+# Set mod key
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:CaskaydiaCove Nerd Font Mono 9
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:CaskaydiaCove Nerd Font Mono 8
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -33,6 +19,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+# Set keyboard layout on startup
+exec "setxkbmap -layout us -variant dvorak"
 
 # St terminal on startup
 exec --no-startup-id st
@@ -190,12 +179,25 @@ default_floating_border normal 1
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command /usr/bin/bumblebee-status \
+        -m battery brightness time cpu memory disk \
+        -p time.format="%H:%M"  \
+        -t iceberg-powerline \
+
         position bottom
-        font pango:DejaVu Sans Mono, Bold 10
+        font pango:DejaVu Sans Mono 10
         mode hide
         hidden_state hide
         modifier $mod+Shift
         tray_output primary
         i3bar_command i3bar --transparency
+
+        # More color options
+        colors {
+                               #BORDER #BG     #TEXT
+            focused_workspace  #61A8DD #61A8DD #FFFFFF
+            inactive_workspace #223322 #223322 #FFFFFF
+
+        }
 }
+
