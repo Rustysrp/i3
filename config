@@ -22,6 +22,7 @@ exec --no-startup-id nm-applet
 
 # Set keyboard layout on startup
 exec "setxkbmap -layout us -variant dvorak"
+bindsym $mod+Q "setxbkeymap -layout us -variant dvorak"
 
 # St terminal on startup
 exec --no-startup-id st
@@ -178,26 +179,28 @@ default_floating_border normal 1
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command /usr/bin/bumblebee-status \
-        -m battery brightness time cpu memory disk \
-        -p time.format="%H:%M"  \
-        -t iceberg-powerline \
-
-        position bottom
-        font pango:DejaVu Sans Mono 10
-        mode hide
-        hidden_state hide
-        modifier $mod+Shift
-        tray_output primary
-        i3bar_command i3bar --transparency
-
+# bar {
+#        status_command /usr/bin/bumblebee-status \
+#        -m battery brightness time cpu memory disk \
+#        -p time.format="%H:%M"  \
+#        -t iceberg-powerline \
+#
+#        position bottom
+#        font pango:DejaVu Sans Mono 10
+#        mode dock
+#        # hidden_state hide
+#        modifier $mod+Shift
+#        tray_output primary
+#        i3bar_command i3bar --transparency
+#
         # More color options
-        colors {
-                               #BORDER #BG     #TEXT
-            focused_workspace  #61A8DD #61A8DD #FFFFFF
-            inactive_workspace #223322 #223322 #FFFFFF
+#        colors {
+#                               #BORDER #BG     #TEXT
+#            focused_workspace  #61A8DD #61A8DD #FFFFFF
+#            inactive_workspace #223322 #223322 #FFFFFF
+#
+#        }
+#}
 
-        }
-}
-
+# Launch Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
