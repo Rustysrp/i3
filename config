@@ -9,6 +9,9 @@ font pango:CaskaydiaCove Nerd Font Mono 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+# Start picom compositor
+exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -184,7 +187,7 @@ bindsym $mod+r mode "resize"
 # Border & gaps config
 default_border none
 default_floating_border pixel 0
-gaps outer 5
+gaps outer 4
 gaps bottom 1
 gaps inner 6
 
