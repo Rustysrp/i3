@@ -146,9 +146,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+S exec "flameshot gui"
 
 # brightness
-bindsym $mod+Shift+W exec "xrandr --output eDP-1 --brightness 0.5"
-bindsym $mod+Shift+V exec "xrandr --output eDP-1 --brightness 0.675"
-bindsym $mod+Shift+Z exec "xrandr --output eDP-1 --brightness 0.85"
+bindsym $mod+Shift+M exec "xrandr --output eDP-1 --brightness 0.5"
+bindsym $mod+Shift+W exec "xrandr --output eDP-1 --brightness 0.675"
+bindsym $mod+Shift+V exec "xrandr --output eDP-1 --brightness 0.85"
+bindsym $mod+Shift+Z exec "xrandr --output eDP-1 --brightness 0.93"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
